@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: test-fastapi-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: curl-job
+          image: curlimages/curl
+          args: ["curl", "http://test-fastapi-service:2000"]
+      restartPolicy: Never
